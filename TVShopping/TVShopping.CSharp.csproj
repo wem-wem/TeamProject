@@ -119,6 +119,7 @@
     <None Include="Assets\Work\Nishimaki\Others\Scenario\ジム移動ルート 失敗.txt" />
     <None Include="Assets\Work\Nishimaki\Others\Scenario\ジム移動ルート 成功.txt" />
     <None Include="Assets\Work\Nishimaki\Others\Scenario\ジム移動ルート.txt" />
+    <None Include="Assets\Work\Sato\Sato\ギャグ3分20秒.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
