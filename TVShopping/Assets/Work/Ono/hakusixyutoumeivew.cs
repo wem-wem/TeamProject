@@ -3,7 +3,7 @@ using System.Collections;
 
 public class hakusixyutoumeivew : MonoBehaviour {
 
-    public GameObject prefab;
+    public GameObject _prefab;
 
 
    
@@ -11,9 +11,9 @@ public class hakusixyutoumeivew : MonoBehaviour {
     void Start()
     {
 
-        GameObject prefab = (GameObject)Resources.Load("Resources/hakusixyutoumei.prefab") as GameObject;
+        _prefab = Resources.Load("Prefabs/hakusixyutoumei") as GameObject;
 
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        Instantiate(_prefab, transform.position, Quaternion.identity);
 
     }
     void Update()
