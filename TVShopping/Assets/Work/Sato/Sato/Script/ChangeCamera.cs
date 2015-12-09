@@ -12,7 +12,8 @@ public class ChangeCamera : MonoBehaviour {
 	void Start () {
 	
 		_camera_number = 0;
-
+		SubCamera [1].enabled = false;
+		SubCamera [2].enabled = false;
 	}
 	
 	// Update is called once per frame
