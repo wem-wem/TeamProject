@@ -8,7 +8,7 @@ public class ScenarioText : MonoBehaviour {
 
 	// Use this for initialization	
 
-	void Start()
+	void Awake()
 	{
 		_Text = GetComponent<Text>();
 	}
