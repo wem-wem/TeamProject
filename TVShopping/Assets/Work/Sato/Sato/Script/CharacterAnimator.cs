@@ -21,26 +21,7 @@ public class CharacterAnimator : MonoBehaviour
 
     //アニメーションが遷移した時間を一時的に保存する場所
     public float _transition_time = 0.0f;
-
-    //使用するか未定.Test段階
-    //何秒に,どのアニメーションで、どの状態かに遷移したかを保存する型
-	/* public struct TransitionInfo
-    {
-        public float _TransitionTime { get; private set; }
-		public int _Animation { get; private set; }
-		public int _State { get; private set; }
-
-      
-        //コンストラクタ
-        public TransitionInfo(float time,Animation animation,State state)
-        {
-            this._TransitionTime = time;
-			this._Animation = (int)animation;
-			this._State = (int)state;
-          
-        }
-        
-    }*/
+	
 	//Animation Jsondate 格納リスト
 	private List<SaveJson.TransitionInfo> _transition_index = new List<SaveJson.TransitionInfo>();
 	[SerializeField]
@@ -72,7 +53,7 @@ public class CharacterAnimator : MonoBehaviour
     //アニメーションパターン
     public enum Animation
     {
-
+								// 
         UpScaling = 0,          //縦に拡縮
         Hopping,                //跳ねる
         RotatoToChangeState,    //回転して表情（画像）変更
@@ -82,6 +63,7 @@ public class CharacterAnimator : MonoBehaviour
     }
     public Animation _current_animation;
     public Animation _next_animation;
+
 
 
     //キャラクターの画像格納と、表示画像領域
@@ -95,7 +77,7 @@ public class CharacterAnimator : MonoBehaviour
     public float _animation_timer;
     public float _animation_counter = 0.0f;
     public Vector2 _defalt_scale;
-    public Vector2 _defalt_position;
+	public Vector3 _defalt_position;
 
     //拡縮
     public float _scaling_limit;
@@ -129,7 +111,7 @@ public class CharacterAnimator : MonoBehaviour
 
         //デフォルトのスケールを保存.
         _defalt_scale = new Vector2(transform.localScale.x, transform.localScale.y);
-        _defalt_position = transform.localPosition;
+		_defalt_position = transform.position;
 
 		//アニメーションデータを読み込み
 		if (DoRoadedAnimarionJsonDate) {
@@ -252,15 +234,16 @@ public class CharacterAnimator : MonoBehaviour
 
 */
 			if (_animation_counter < half_time)
-				transform.position = new Vector2(_defalt_position.x,
+				transform.position = new Vector3(_defalt_position.x,
 					(float)_easing.InOutQuart(_animation_counter, half_time,
-						_hopping_limit+_defalt_position.y, transform.position.y));
+						_hopping_limit+_defalt_position.y, transform.position.y)
+					,_defalt_position.z);
 
 			//着地まで
 			if (_animation_counter >= half_time && _animation_counter < _total_hopping_time)
-				transform.position = new Vector2(_defalt_position.x,
+				transform.position = new Vector3(_defalt_position.x,
 					(float)_easing.InOutQuart(_animation_counter - half_time, half_time,
-						_defalt_position.y,transform.position.y));
+						_defalt_position.y,transform.position.y),_defalt_position.z);
 
             //到達時間に達したらリセット
             if (_animation_counter >= _total_hopping_time)

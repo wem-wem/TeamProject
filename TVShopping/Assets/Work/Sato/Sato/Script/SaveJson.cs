@@ -24,7 +24,7 @@ public class SaveJson : MonoBehaviour {
 
 
 		//コンストラクタ
-		public TransitionInfo(float time,AnimatorScenario.Animation animation,AnimatorScenario.State state)
+		public TransitionInfo(float time,CharacterAnimator.Animation animation,CharacterAnimator.State state)
 		{
 			this._TransitionTime = time;
 			this._Animation = (int)animation;

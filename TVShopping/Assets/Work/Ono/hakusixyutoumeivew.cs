@@ -11,9 +11,9 @@ public class hakusixyutoumeivew : MonoBehaviour {
     void Start()
     {
 
-        //GameObject prefab = (GameObject)Resources.Load("Resources/Prefabs/hakusixyutoumei.prefab") as GameObject;
+        GameObject prefab = (GameObject)Resources.Load("Resources/hakusixyutoumei.prefab") as GameObject;
 
-        //Instantiate(prefab, transform.position, Quaternion.identity);
+        Instantiate(prefab, transform.position, Quaternion.identity);
 
     }
     void Update()

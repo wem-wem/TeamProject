@@ -7,11 +7,13 @@ public class ChangeCamera : MonoBehaviour {
 	Camera[] SubCamera;
 	int _camera_number;
 
+
 	// Use this for initialization
 	void Start () {
 	
 		_camera_number = 0;
-
+		SubCamera [1].enabled = false;
+		SubCamera [2].enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -48,7 +50,6 @@ public class ChangeCamera : MonoBehaviour {
 	void SetCamera(int set_camera_number = 0){
 	
 		SubCamera [_camera_number].enabled = false;
-
 		SubCamera [set_camera_number].enabled = true;
 
 	}
