@@ -7,6 +7,7 @@ public class ChangeCamera : MonoBehaviour {
 	Camera[] SubCamera;
 	int _camera_number;
 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -48,7 +49,6 @@ public class ChangeCamera : MonoBehaviour {
 	void SetCamera(int set_camera_number = 0){
 	
 		SubCamera [_camera_number].enabled = false;
-
 		SubCamera [set_camera_number].enabled = true;
 
 	}
