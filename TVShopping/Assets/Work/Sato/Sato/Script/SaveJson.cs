@@ -103,7 +103,7 @@ public class SaveJson : MonoBehaviour {
 		string jsonText = textAsset.text;
 		JsonNode json = JsonNode.Parse(jsonText);
 
-		Debug.Log (jsonText);
+
 		for (int i = 0; i < 20; i++) {
 
 

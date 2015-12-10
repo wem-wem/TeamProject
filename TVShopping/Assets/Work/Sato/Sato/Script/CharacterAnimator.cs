@@ -42,9 +42,13 @@ public class CharacterAnimator : MonoBehaviour
     {
 
         Normal = 0,             //通常時
-        Smile,                  //笑顔
-        Happened,               //驚き
-
+		Smile = 1,                  //笑顔
+		Happened = 2,               //驚き
+		Angry = 3,
+		CoolFace = 4,
+		Happiness = 5,
+		Hate = 6,//Jony is saddly
+		Sexy = 7,//Jony is saddly
         Last,                   //番兵
     }
     public State _current_state;

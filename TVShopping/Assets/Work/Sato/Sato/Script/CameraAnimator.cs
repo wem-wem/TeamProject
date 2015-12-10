@@ -14,7 +14,7 @@ public class CameraAnimator : MonoBehaviour {
 	}
 	Easing _easing;
 	float timer;
-	Vector2 _center_pos = new Vector2(0.0f,5.0f);
+	Vector2 _center_pos = new Vector2(0.0f,4.5f);
 
 
 	// Use this for initialization
