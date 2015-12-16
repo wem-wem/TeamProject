@@ -118,7 +118,11 @@
     </member>
     <member name="T:UnityEngine.Advertisements.ShowOptions">
       <summary>
+<<<<<<< HEAD
         <para>Collection of options that can be passed to [[Advertisements.Show]] to modify advertisement behaviour.</para>
+=======
+        <para>Collection of options that can be passed to Advertisements.Show to modify advertisement behaviour.</para>
+>>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8
       </summary>
     </member>
     <member name="P:UnityEngine.Advertisements.ShowOptions.gamerSid">
@@ -133,7 +137,11 @@
     </member>
     <member name="T:UnityEngine.Advertisements.ShowResult">
       <summary>
+<<<<<<< HEAD
         <para>ShowResult is passed to [[ShowOptions.resultCallback]] after the advertisement has completed.</para>
+=======
+        <para>ShowResult is passed to ShowOptions.resultCallback after the advertisement has completed.</para>
+>>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8
       </summary>
     </member>
     <member name="F:UnityEngine.Advertisements.ShowResult.Failed">
