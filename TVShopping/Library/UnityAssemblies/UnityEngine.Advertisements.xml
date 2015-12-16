@@ -119,7 +119,11 @@
     <member name="T:UnityEngine.Advertisements.ShowOptions">
       <summary>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <para>Collection of options that can be passed to [[Advertisements.Show]] to modify advertisement behaviour.</para>
+=======
+        <para>Collection of options that can be passed to Advertisements.Show to modify advertisement behaviour.</para>
+>>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8
 =======
         <para>Collection of options that can be passed to Advertisements.Show to modify advertisement behaviour.</para>
 >>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8
@@ -138,7 +142,11 @@
     <member name="T:UnityEngine.Advertisements.ShowResult">
       <summary>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <para>ShowResult is passed to [[ShowOptions.resultCallback]] after the advertisement has completed.</para>
+=======
+        <para>ShowResult is passed to ShowOptions.resultCallback after the advertisement has completed.</para>
+>>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8
 =======
         <para>ShowResult is passed to ShowOptions.resultCallback after the advertisement has completed.</para>
 >>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8

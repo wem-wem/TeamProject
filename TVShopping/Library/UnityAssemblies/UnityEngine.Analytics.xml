@@ -41,8 +41,13 @@
       <param name="productId">The id of the purchased item.</param>
       <param name="amount">The price of the item.</param>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <param name="currency">Abbreviation of the currency used for the transaction. For example “USD” (United States Dollars). See http://en.wikipedia.org/wiki/ISO_4217 for a standardized list of currency abbreviations.</param>
       <param name="receiptPurchaseData">Receipt data (iOS) / receipt ID (android) / for in-app purchases to verify purchases with Apple iTunes / Google Play. Use null in the absence of receipts.</param>
+=======
+      <param name="currency">Abbreviation of the currency used for the transaction. For example “USD” (United States Dollars). See http:en.wikipedia.orgwikiISO_4217 for a standardized list of currency abbreviations.</param>
+      <param name="receiptPurchaseData">Receipt data (iOS)  receipt ID (android)  for in-app purchases to verify purchases with Apple iTunes / Google Play. Use null in the absence of receipts.</param>
+>>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8
 =======
       <param name="currency">Abbreviation of the currency used for the transaction. For example “USD” (United States Dollars). See http:en.wikipedia.orgwikiISO_4217 for a standardized list of currency abbreviations.</param>
       <param name="receiptPurchaseData">Receipt data (iOS)  receipt ID (android)  for in-app purchases to verify purchases with Apple iTunes / Google Play. Use null in the absence of receipts.</param>
@@ -56,8 +61,13 @@
       <param name="productId">The id of the purchased item.</param>
       <param name="amount">The price of the item.</param>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <param name="currency">Abbreviation of the currency used for the transaction. For example “USD” (United States Dollars). See http://en.wikipedia.org/wiki/ISO_4217 for a standardized list of currency abbreviations.</param>
       <param name="receiptPurchaseData">Receipt data (iOS) / receipt ID (android) / for in-app purchases to verify purchases with Apple iTunes / Google Play. Use null in the absence of receipts.</param>
+=======
+      <param name="currency">Abbreviation of the currency used for the transaction. For example “USD” (United States Dollars). See http:en.wikipedia.orgwikiISO_4217 for a standardized list of currency abbreviations.</param>
+      <param name="receiptPurchaseData">Receipt data (iOS)  receipt ID (android)  for in-app purchases to verify purchases with Apple iTunes / Google Play. Use null in the absence of receipts.</param>
+>>>>>>> a6c883e8e31b49c20ea9fb3f0df32db3365743e8
 =======
       <param name="currency">Abbreviation of the currency used for the transaction. For example “USD” (United States Dollars). See http:en.wikipedia.orgwikiISO_4217 for a standardized list of currency abbreviations.</param>
       <param name="receiptPurchaseData">Receipt data (iOS)  receipt ID (android)  for in-app purchases to verify purchases with Apple iTunes / Google Play. Use null in the absence of receipts.</param>
