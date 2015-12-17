@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class Buttons : MonoBehaviour
 {
     // ルート分岐用
     public enum route
@@ -102,7 +102,7 @@ public class Button : MonoBehaviour
                         return route.B_ROUTE;
                     }
 
-                    // 一定時間選択されずに経過したら画面外にフェードアウト
+                    // 一定時間選択されずに経過したら画面外にフェーhアウト
                     if (_game_time > _pop_time + _limit)
                     {
                         _move -= 20.0f;
