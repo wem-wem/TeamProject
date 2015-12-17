@@ -99,19 +99,12 @@ public class MenuButton : MonoBehaviour
 
     private void Start()
     {
-        Init();
-
         //ボタン入力
         _menuButton.onClick.AddListener(MainMenu);
         _gameButton.onClick.AddListener(MainGame);
 
         //スコア加算
         StartCoroutine(ScoreResult());
-    }
-
-    private void Init()
-    {
-        Debug.Log(_UI.transform.position);
     }
 
     //売り上げ表示
