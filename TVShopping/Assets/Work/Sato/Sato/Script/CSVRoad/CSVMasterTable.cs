@@ -4,9 +4,8 @@ using System.Collections;
 public class CSVMasterTable : MasterTableBase<CSVScenarioData> 
 {
 	//FileName(Path)
-
-	private static readonly string FilePath = "Route3";
-    public void Load() { Load(FilePath); }
+	private static readonly string _FilePath = "Route3";
+	public void Load() { Load(_FilePath); }
 }
 
 public class CSVScenarioData : MasterBase
@@ -31,4 +30,5 @@ public class CSVScenarioData : MasterBase
 	public int AberyState { get; private set; }
 */
 }
+
 

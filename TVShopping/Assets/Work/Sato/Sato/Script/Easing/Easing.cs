@@ -60,6 +60,24 @@ public class Easing : MonoBehaviour
         return time == totaltime ? max + min : max * (-Mathf.Pow(2, -10 * time / totaltime) + 1) + min;
     }
 
+	//Sってなんだろう
+	public float OutBounce(float t,float totaltime,float max ,float min )
+	{
+		max -= min;
+		t /= totaltime;
 
+		if (t < 1 / 2.75f)
+			return max * (7.5625f * t * t) + min;
+		else if (t < 2 / 2.75) {
+			t -= 1.5f / 2.75f;
+			return max * (7.5625f * t * t + 0.75f) + min;
+		} else if (t < 2.5f / 2.75f) {
+			t -= 2.25f / 2.75f;
+			return max * (7.5625f * t * t + 0.9375f) + min;
+		} else {
+			t -= 2.625f / 2.75f;
+			return max * (7.5625f * t * t + 0.984375f) + min;
+		}
+	}
 }
 
