@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class BruchButtonTextSetter : MonoBehaviour
 {
-    Button_Reaction BR;
-
     //テキスト格納用
     List<string> _A_button_text;
     List<string> _B_button_text;
@@ -85,8 +83,6 @@ public class BruchButtonTextSetter : MonoBehaviour
 
         _textA = _A_button_text[0];
         _textB = _B_button_text[0];
-
-        BR = GetComponent<Button_Reaction>();
     }
 
     // ボタン一個分の情報を収納する関数
@@ -142,46 +138,65 @@ public class BruchButtonTextSetter : MonoBehaviour
 
     void Update()
     {
-        // 指定した時間に、一度だけ生成
-        if (!_doCreate)
-        {
-            for (var b = 0; b < ButtonNum; b++)
-            {
-                _buttons[b] = Create_DuoButton(b);
-            }
-            _doCreate = true;
-        }
-        // 時間切れなら削除
-        if (_doCreate)
-        {
-            _delete_timer += Time.deltaTime;
-            if (_delete_timer >= _delete_time)
-            {
-                _disp_count++;
-                for (var b = 0; b < ButtonNum; b++)
-                {
-                    Destroy(_buttons[b]);
-                }
-                _doCreate = false;
-                _delete_timer = 0;
-                _textA = _A_button_text[_disp_count];
-                _textB = _B_button_text[_disp_count];
-            }
-        }
-
-        ClickToDelete();
+        CreateButton();
     }
 
-    // クリックされたら削除
-    void ClickToDelete()
+    // フラグがtrueになったらボタンを生成
+    private void CreateButton()
     {
-        if (_buttons[0].GetComponent<Button_Reaction>().isClick ||
-            _buttons[1].GetComponent<Button_Reaction>().isClick)
+        if (_disp_flag)
         {
-            for (int i = 0; i < ButtonNum; i++)
+            // 指定した時間に、一度だけ生成
+            if (!_doCreate)
             {
-                Destroy(_buttons[i]);
+                for (var b = 0; b < ButtonNum; b++)
+                {
+                    _buttons[b] = Create_DuoButton(b);
+                }
+                _doCreate = true;
+            }
+
+            if (_doCreate)
+            {
+                _delete_timer += Time.deltaTime;
+
+                DeleteButton();
             }
         }
+    }
+
+    // 時間切れ又は、どちらかがタッチされたら削除
+    private void DeleteButton()
+    {
+        if (_delete_timer >= _delete_time ||
+            _buttons[0].GetComponent<Button_Reaction>().isClick ||
+            _buttons[1].GetComponent<Button_Reaction>().isClick)
+        {
+            // 次回表示するテキストを変更する為に
+            // カウントを１つ進める
+            if (_disp_count < _A_button_text.Count)
+            {
+                _disp_count++;
+            }
+            // ボタンを削除
+            for (var b = 0; b < ButtonNum; b++)
+            {
+                Destroy(_buttons[b]);
+            }
+
+            // ボタンの生成フラグや制限時間をリセットし
+            // 次回表示するテキストを格納して待機状態に
+            _doCreate = false;
+            _disp_flag = false;
+            _delete_timer = 0;
+            _textA = _A_button_text[_disp_count];
+            _textB = _B_button_text[_disp_count];
+        }
+    }
+
+    // ボタン生成フラグをtrueにする為の関数(不必要？)
+    public void FlagManage()
+    {
+        _disp_flag = true;
     }
 }
