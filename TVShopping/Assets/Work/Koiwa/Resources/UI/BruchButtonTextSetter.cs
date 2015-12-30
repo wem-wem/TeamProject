@@ -21,7 +21,7 @@ public class BruchButtonTextSetter : MonoBehaviour
 
     // 生成する為のフラグ
     // (これをON/OFFしてtextの番号を進めていく)
-    private bool _disp_flag = true;
+    private bool _disp_flag = false;
     private int _disp_count = 0;
 
     // 何秒後に消すかを指定
@@ -140,7 +140,7 @@ public class BruchButtonTextSetter : MonoBehaviour
     {
         CreateButton();
     }
-
+    
     // フラグがtrueになったらボタンを生成
     private void CreateButton()
     {
