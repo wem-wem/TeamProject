@@ -21,14 +21,8 @@ public class BruchButtonTextSetter : MonoBehaviour
 
     // 生成する為のフラグ
     // (これをON/OFFしてtextの番号を進めていく)
-    private bool _disp_flag = false;
+    private bool _disp_flag = true;
     private int _disp_count = 0;
-
-    // 何秒後に消すかを指定
-    [SerializeField]
-    private float _delete_time = 5;
-    // 表示からカウントを始める消去用のタイマー
-    private float _delete_timer = 0;
 
     // 複数個同じボタンが作られないように制御
     private bool _doCreate = false;
@@ -49,9 +43,13 @@ public class BruchButtonTextSetter : MonoBehaviour
         }
     }
 
+    // ボタン選択時に音を鳴らす準備
+    // キャンバスに【AudioSource】をアタッチする必要がある
+    private AudioSource _audioSource;   // 音を鳴らす箱を用意
+    public AudioClip _select_SE;            // 実際に鳴らす音を用意
+
     void Start()
     {
-
         //リスト初期化
         _A_button_text = new List<string>();
         _B_button_text = new List<string>();
@@ -83,6 +81,11 @@ public class BruchButtonTextSetter : MonoBehaviour
 
         _textA = _A_button_text[0];
         _textB = _B_button_text[0];
+
+        // 音を鳴らす箱がアタッチされているか確認、使用。
+        _audioSource = GameObject.FindObjectOfType<AudioSource>();
+        _audioSource.loop = false;  // ループ防止
+        _select_SE = (AudioClip)Resources.Load("UI/Select_SE");
     }
 
     // ボタン一個分の情報を収納する関数
@@ -140,7 +143,7 @@ public class BruchButtonTextSetter : MonoBehaviour
     {
         CreateButton();
     }
-    
+
     // フラグがtrueになったらボタンを生成
     private void CreateButton()
     {
@@ -158,8 +161,6 @@ public class BruchButtonTextSetter : MonoBehaviour
 
             if (_doCreate)
             {
-                _delete_timer += Time.deltaTime;
-
                 DeleteButton();
             }
         }
@@ -168,10 +169,12 @@ public class BruchButtonTextSetter : MonoBehaviour
     // 時間切れ又は、どちらかがタッチされたら削除
     private void DeleteButton()
     {
-        if (_delete_timer >= _delete_time ||
-            _buttons[0].GetComponent<Button_Reaction>().isClick ||
+        if (_buttons[0].GetComponent<Button_Reaction>().isClick ||
             _buttons[1].GetComponent<Button_Reaction>().isClick)
         {
+            // SEを一度だけ鳴らす
+            _audioSource.PlayOneShot(_select_SE);
+
             // 次回表示するテキストを変更する為に
             // カウントを１つ進める
             if (_disp_count < _A_button_text.Count)
@@ -188,7 +191,6 @@ public class BruchButtonTextSetter : MonoBehaviour
             // 次回表示するテキストを格納して待機状態に
             _doCreate = false;
             _disp_flag = false;
-            _delete_timer = 0;
             _textA = _A_button_text[_disp_count];
             _textB = _B_button_text[_disp_count];
         }
