@@ -54,7 +54,7 @@ public class LightCreate : MonoBehaviour
         _scream_SE = (AudioClip)Resources.Load("LightDrop/Scream_SE");
         _break_SE = (AudioClip)Resources.Load("LightDrop/Break_SE");
 
-        _doPlay_LightDrop = true;
+        _doPlay_LightDrop = false;
         _doCreate = false;
         _SE_timer = 0;
 

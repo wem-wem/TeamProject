@@ -21,11 +21,11 @@ public class BruchButtonTextSetter : MonoBehaviour
 
     // 生成する為のフラグ
     // (これをON/OFFしてtextの番号を進めていく)
-    private bool _disp_flag = true;
-    private int _disp_count = 0;
+    private bool _disp_flag;
+    private int _disp_count;
 
     // 複数個同じボタンが作られないように制御
-    private bool _doCreate = false;
+    private bool _doCreate;
 
     // ボタンに表示するテキスト
     private string _textA = null;
@@ -79,6 +79,9 @@ public class BruchButtonTextSetter : MonoBehaviour
             // ボタン描画用の変数に取得させる
         }
 
+        _doCreate = false;
+        _disp_flag = false;
+        _disp_count = 0;
         _textA = _A_button_text[0];
         _textB = _B_button_text[0];
 
