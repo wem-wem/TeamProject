@@ -8,6 +8,7 @@ public class BruchButtonTextSetter : MonoBehaviour
     //テキスト格納用
     List<string> _A_button_text;
     List<string> _B_button_text;
+    List<string> _note_text;
     ScenarioSetter _scenario_ref;
     //
     //リスト型を取得する時は　
@@ -21,6 +22,7 @@ public class BruchButtonTextSetter : MonoBehaviour
 
     // 生成する為のフラグ
     // (これをON/OFFしてtextの番号を進めていく)
+    [SerializeField]
     private bool _disp_flag;
     private int _disp_count;
 
@@ -86,7 +88,7 @@ public class BruchButtonTextSetter : MonoBehaviour
         _textB = _B_button_text[0];
 
         // 音を鳴らす箱がアタッチされているか確認、使用。
-        _audioSource = GameObject.FindObjectOfType<AudioSource>();
+        _audioSource = gameObject.GetComponent<AudioSource>();
         _audioSource.loop = false;  // ループ防止
         _select_SE = (AudioClip)Resources.Load("UI/Select_SE");
     }
