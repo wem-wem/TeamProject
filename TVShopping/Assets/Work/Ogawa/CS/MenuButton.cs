@@ -65,6 +65,12 @@ public class MenuButton : MonoBehaviour
 
     #endregion
 
+    #region ＳＥ関連
+    bool _doPlay_SE;   // ドラムロールが終了したかどうかの判定
+    private AudioSource _audioSource;
+    public AudioClip _dram_SE;
+    #endregion
+
     #endregion
 
     //リザルトの演出処理全般
@@ -105,6 +111,12 @@ public class MenuButton : MonoBehaviour
 
         //スコア加算
         StartCoroutine(ScoreResult());
+
+        // SE読み込み
+        _doPlay_SE = false;
+        _audioSource = gameObject.GetComponent<AudioSource>();
+        _audioSource.loop = false;
+        _dram_SE = (AudioClip)Resources.Load("Dram_SE");
     }
 
     //売り上げ表示
@@ -117,6 +129,11 @@ public class MenuButton : MonoBehaviour
     //視聴率表示
     private IEnumerator GetScorePlus()
     {
+        if (!_doPlay_SE)
+        {
+            _audioSource.PlayOneShot(_dram_SE);
+            _doPlay_SE = true;
+        }
         //スコア加算が終わっていなければ
         if (_Score_plus != _TVScore / 10)
         {
