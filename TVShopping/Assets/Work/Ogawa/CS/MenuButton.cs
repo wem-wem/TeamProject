@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 
 public class MenuButton : MonoBehaviour
@@ -65,15 +66,22 @@ public class MenuButton : MonoBehaviour
 
     #endregion
 
+    [SerializeField]
+    private GameObject _DramRoll;
+    [SerializeField]
+    private GameObject _Cymbals;
+
     #endregion
 
     //リザルトの演出処理全般
     private IEnumerator ScoreResult()
     {
+       
         yield return null;
 
         while (true)
         {
+
             //パネルが上から降りてくる演出
             yield return StartCoroutine(DownResultAnimation());
 
@@ -99,6 +107,18 @@ public class MenuButton : MonoBehaviour
 
     private void Start()
     {
+
+        
+        Vector3 _Canvas_size = _Canvas.transform.position;
+        Vector3 _UI_size = _UI.transform.position;
+        Vector3 _UI_pos = new Vector3(_Canvas_size.x, _Canvas_size.y * 2 + _UI_size.y, 0);
+
+        //パネルの初期位置
+        _UI.transform.position = _UI_pos;
+
+        _UI.gameObject.SetActive(true);
+
+
         //ボタン入力
         _menuButton.onClick.AddListener(MainMenu);
         _gameButton.onClick.AddListener(MainGame);
@@ -120,6 +140,7 @@ public class MenuButton : MonoBehaviour
         //スコア加算が終わっていなければ
         if (_Score_plus != _TVScore / 10)
         {
+            _DramRoll.gameObject.SetActive(true);
             for (var i = 0; i < (_TVScore / 10) + 1; i++)
             {
 
@@ -135,6 +156,9 @@ public class MenuButton : MonoBehaviour
                     _Score_plus = i;
                     //テキストに反映
                     _A_r_scoreText.text = _Score_plus.ToString() + "." + _Score_index.ToString() + "％";
+
+                    _DramRoll.gameObject.SetActive(false);
+                    _Cymbals.gameObject.SetActive(true);
 
                     //ボタン入力を許可
                     _OnButton = true;
@@ -161,6 +185,7 @@ public class MenuButton : MonoBehaviour
             yield return null;
         }
     }
+
 
     //ボタンの表示
     private IEnumerator DrawButton()
