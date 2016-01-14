@@ -3,7 +3,7 @@ using System.Collections;
 
 public class hakusixyutoumeivew : MonoBehaviour {
 
-    public GameObject _prefab;
+    public GameObject prefab;
 
 
    
@@ -11,18 +11,21 @@ public class hakusixyutoumeivew : MonoBehaviour {
     void Start()
     {
 
-        _prefab = Resources.Load("Prefabs/hakusixyutoumei") as GameObject;
+        //GameObject prefab = (GameObject)Resources.Load("Resources/hakusixyutoumei.prefab") as GameObject;
+        //Instantiate(prefab, transform.position, Quaternion.identity);
 
-        Instantiate(_prefab, transform.position, Quaternion.identity);
+
+
+
 
     }
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Application.LoadLevel("Nishimaki");
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+          //  Application.LoadLevel("Nishimaki");
+        //}
 
     }
 

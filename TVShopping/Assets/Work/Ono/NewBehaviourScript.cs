@@ -25,7 +25,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-            Application.LoadLevel("Nishimaki");
+           // Application.LoadLevel("Nishimaki");
         }
 
 
